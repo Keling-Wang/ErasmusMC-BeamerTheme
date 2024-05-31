@@ -1,0 +1,106 @@
+\mode<presentation>
+
+\newif\ifbeamer@secheader
+\beamer@secheaderfalse
+
+%\DeclareOptionBeamer{secheader}{\beamer@secheadertrue}
+\ProcessOptionsBeamer
+
+%%%% Define outer theme: SMOOTHBARS
+\useoutertheme[footline=authorinstitutetitle,subsection=false]{smoothbars}
+\makeatletter % [add curpage/total page at the bottom](http://tex.stackexchange.com/questions/100838/beamer-dresden-theme-miniframes-appeareance-and-frame-number-insertion)
+\newcommand{\frameofframes}{/}
+\newcommand{\setframeofframes}[1]{\renewcommand{\frameofframes}{#1}}
+\setbeamertemplate{navigation symbols}{} % suppress navigation bar
+%%% Define foot line
+\setbeamertemplate{footline} 
+  {%
+    \sffamily
+    \begin{beamercolorbox}[colsep=1.5pt]{upper separation line foot}
+    \end{beamercolorbox}
+    \begin{beamercolorbox}[ht=2.5ex,dp=1.125ex,%
+      leftskip=.3cm,rightskip=.3cm plus1fil]{author in head/foot}%
+      \leavevmode{\usebeamerfont{author in head/foot}\insertshortauthor}%
+      \hfill%
+      {\usebeamerfont{institute in head/foot}\usebeamercolor[fg]{institute in head/foot}\insertshortinstitute}%
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[ht=2.5ex,dp=1.125ex,%
+      leftskip=.3cm,rightskip=.3cm plus1fil]{title in head/foot}%
+      {\usebeamerfont{title in head/foot}\insertshorttitle}%
+      \hfill%
+      {\usebeamerfont{frame number}\usebeamercolor[fg]{frame number}\insertframenumber~\frameofframes~\inserttotalframenumber}
+    \end{beamercolorbox}%
+    \begin{beamercolorbox}[colsep=1.5pt]{lower separation line foot}
+    \end{beamercolorbox}
+  }
+\makeatother
+
+%%% Define Inner Theme
+\useinnertheme{circles}
+
+%%% Define Erasmus MC colors
+\xdefinecolor{erasmusmc}{RGB}{134,210,236} % #86d2ec
+\xdefinecolor{erasmusmc_dark}{RGB}{12,33,116} % #0c2174
+
+%%% Set Block Color
+\setbeamercolor{structure}{fg=erasmusmc_dark, bg=erasmusmc}
+
+\setbeamercolor{block title}{bg=erasmusmc,fg=erasmusmc_dark}
+\setbeamercolor*{block title example}{use={normal text,example text},bg=erasmusmc!75!white,fg=erasmusmc!25!erasmusmc_dark}
+\setbeamercolor{fine separation line}{}
+\setbeamercolor{item projected}{fg=white}
+\setbeamercolor{palette sidebar primary}{use=normal text,fg=normal text.fg}
+\setbeamercolor{palette sidebar quaternary}{use=structure,fg=structure.fg}
+\setbeamercolor{palette sidebar secondary}{use=structure,fg=structure.fg}
+\setbeamercolor{palette sidebar tertiary}{use=normal text,fg=normal text.fg}
+%\setbeamercolor{palette sidebar quaternary}{fg=white}
+
+\setbeamercolor{section in sidebar}{fg=erasmusmc_dark}
+\setbeamercolor{section in sidebar shaded}{fg=erasmusmc_dark!30!grey}
+\setbeamercolor{separation line}{}
+\setbeamercolor{sidebar}{bg=erasmusmc}
+\setbeamercolor{sidebar}{parent=palette primary}
+\setbeamercolor{subsection in sidebar}{fg=brown}
+\setbeamercolor{subsection in sidebar shaded}{fg=erasmusmc_dark!30!grey}
+
+%%% Set Frame and Title Colors
+\setbeamercolor{footline}{bg=erasmusmc}
+\setbeamercolor{frametitle}{bg=erasmusmc,fg=erasmusmc_dark}
+\setbeamercolor{title}{bg=erasmusmc}
+\setbeamerfont{frametitle}{size=\large}
+%\setbeamertemplate{navigation symbols}{}
+\setbeamertemplate{bibliography item}[text]
+\setbeamertemplate{caption}[numbered]
+
+%%% Set Palatte Colors
+\setbeamercolor{palette primary}{use=structure,fg=structure.fg,bg=structure.bg}
+\setbeamercolor{palette secondary}{use=structure,fg=structure.fg,bg=structure.bg!75!structure.fg}
+\setbeamercolor{palette tertiary}{use=structure,fg=structure.fg,bg=structure.bg!50!structure.fg}
+\setbeamercolor{palette quaternary}{fg=erasmusmc_dark,bg=erasmusmc!85!erasmusmc_dark}
+%\setbeamercolor*{sidebar}{use=structure,bg=structure.fg}
+\setbeamercolor{titlelike}{parent=palette primary}
+
+%%% Set Text colors
+\setbeamercolor{alerted text}{fg=erasmusmc!50!erasmusmc_dark}
+\setbeamercolor{itemize/enumerate body}{fg=erasmusmc_dark}
+\setbeamercolor{normal text}{fg=erasmusmc_dark}
+
+
+
+
+
+%%% Set Section Table of contents
+\AtBeginSection[]{
+	\begin{frame}
+		\tableofcontents[sectionstyle=show/shaded,subsectionstyle=show/shaded/hide,subsubsectionstyle=show/shaded/hide]
+	\end{frame}
+}
+%%% Set SubSection Table of contents
+\AtBeginSubsection[]{
+	\begin{frame}
+		\tableofcontents[sectionstyle=show/shaded,subsectionstyle=show/shaded/hide,subsubsectionstyle=show/shaded/hide]
+	\end{frame}
+}
+
+\mode
+<all>

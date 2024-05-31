@@ -1,0 +1,339 @@
+\documentclass{beamer}
+\title{\textbf{Erasmus MC Beamer Theme}}
+\subtitle{modified from Tsinghua Beamer theme}
+
+
+\usepackage{hyperref}
+\usepackage[T1]{fontenc}
+
+% other packages
+\usepackage{latexsym,amsmath,amssymb,amsfonts,multicol,booktabs,calligra}
+\usepackage{graphicx,pstricks,listings,stackengine}
+\usepackage[backend=biber,style=nejm]{biblatex}
+\addbibresource{ref.bib}
+\renewcommand{\cite}{\parencite}
+
+\usepackage{erasmusmc}
+\input{userdefined}
+
+
+
+
+\begin{document}
+
+\include{titlepage}
+
+\section{Background}
+
+\begin{frame}{\textbf{Feeling cool when using Beamer?}}
+    \begin{itemize}[<+-| alert@+>] % other than alert it's also okay to insert \pause manually.
+        \item We all know \LaTeX{}, and many institutes have their own themes.
+        \item For Chinese compilation support, use Xe\LaTeX{}
+        \item The original THU Beamer Overleaf project: \url{https://www.overleaf.com/latex/templates/thu-beamer-theme/vwnqmzndvwyb}, ready to use
+        \item The original GitHub project:  \url{https://github.com/Trinkle23897/THU-Beamer-Theme}, welcome for issues if there are any bugs or requests.
+    \end{itemize}
+\end{frame}
+
+
+\section{State of the art}
+
+\subsection{Beamer templates}
+
+\begin{frame}
+    \begin{itemize}
+        \item Some from \LaTeX{}
+        \item Some from Tsinghua University
+        \item This template comes from \newline \url{https://www.latexstudio.net/archives/4051.html}
+        \item But the very first \href{http://far.tooold.cn/post/latex/beamertsinghua}{\color{purple}{link}} \cite{origin} has already expired.
+        \item Some beamers made in 2016-17: \href{https://github.com/Trinkle23897/oi_slides}{\color{erasmusmc!50!white}{click me}}
+    \end{itemize}
+\end{frame}
+
+
+\section{Content}
+
+\subsection{Make beamer beautiful}
+
+\begin{frame}{Difference from the original THU theme}
+    \begin{itemize}
+        \item one-line circle headbars but not multiple
+        \item Kaishu font for Chinese (suppressed)
+        \item Four years from adaptation so a lot of stuff is forgot
+        \item Can refer to this for more usages of this template: \url{https://www.latexstudio.net/archives/4051.html}
+        \item Listed below are some usage of this Beamer template, some extracted from \url{https://tuna.moe/event/2018/latex/}
+    \end{itemize}
+\end{frame}
+
+\subsection{How to make a Beamer better}
+
+\begin{frame}{Why Beamer}
+    \begin{itemize}
+        \item \LaTeX\ Used broadly in academia and journals
+    \end{itemize}
+    \begin{table}[h]
+        \centering
+        \begin{tabular}{c|c}
+            Microsoft\textsuperscript{\textregistered}  Word & \LaTeX \\
+            \hline
+            Lorem ipsum dolor sit amet & Lorem ipsum dolor sit amet \\
+            Lorem ipsum dolor sit amet & Lorem ipsum dolor sit amet \\
+            Lorem ipsum dolor & Lorem ipsum \\
+        \end{tabular}
+    \end{table}
+\end{frame}
+
+\begin{frame}{Layout example}
+    \begin{exampleblock}{plain formula} % add * 
+        \begin{equation*}
+            J(\theta) = \mathbb{E}_{\pi_\theta}[G_t] = \sum_{s\in\mathcal{S}} d^\pi (s)V^\pi(s)=\sum_{s\in\mathcal{S}} d^\pi(s)\sum_{a\in\mathcal{A}}\pi_\theta(a|s)Q^\pi(s,a)
+        \end{equation*}
+    \end{exampleblock}
+    \begin{exampleblock}{formula with multiple rows\footnote{If there are texts in please use $\backslash$mathrm\{\} or $\backslash$text\{\} to wrap, or it will look like $clip$, much uglier than $\mathrm{clip}$}}
+        % using & as separator
+        \begin{align}
+            Q_\mathrm{target}&=r+\gamma Q^\pi(s^\prime, \pi_\theta(s^\prime)+\epsilon)\\
+            \epsilon&\sim\mathrm{clip}(\mathcal{N}(0, \sigma), -c, c)\nonumber
+        \end{align}
+    \end{exampleblock}
+\end{frame}
+
+\begin{frame}
+    \begin{exampleblock}{Numbered multiple row formula}
+    
+        % Taken from Mathmode.tex
+        \begin{multline}
+            A=\lim_{n\rightarrow\infty}\Delta x\left(a^{2}+\left(a^{2}+2a\Delta x+\left(\Delta x\right)^{2}\right)\right.\label{eq:reset}\\
+            +\left(a^{2}+2\cdot2a\Delta x+2^{2}\left(\Delta x\right)^{2}\right)\\
+            +\left(a^{2}+2\cdot3a\Delta x+3^{2}\left(\Delta x\right)^{2}\right)\\
+            +\ldots\\
+            \left.+\left(a^{2}+2\cdot(n-1)a\Delta x+(n-1)^{2}\left(\Delta x\right)^{2}\right)\right)\\
+            =\frac{1}{3}\left(b^{3}-a^{3}\right)
+        \end{multline}
+    \end{exampleblock}
+\end{frame}
+
+\begin{frame}{Figure and columns}
+    % From THU thesis user guide.
+    \begin{minipage}[c]{0.3\linewidth}
+        \psset{unit=0.8cm}
+        \begin{pspicture}(-1.75,-3)(3.25,4)
+            \psline[linewidth=0.25pt](0,0)(0,4)
+            \rput[tl]{0}(0.2,2){$\vec e_z$}
+            \rput[tr]{0}(-0.9,1.4){$\vec e$}
+            \rput[tl]{0}(2.8,-1.1){$\vec C_{ptm{ext}}$}
+            \rput[br]{0}(-0.3,2.1){$\theta$}
+            \rput{25}(0,0){%
+            \psframe[fillstyle=solid,fillcolor=lightgray,linewidth=.8pt](-0.1,-3.2)(0.1,0)}
+            \rput{25}(0,0){%
+            \psellipse[fillstyle=solid,fillcolor=yellow,linewidth=3pt](0,0)(1.5,0.5)}
+            \rput{25}(0,0){%
+            \psframe[fillstyle=solid,fillcolor=lightgray,linewidth=.8pt](-0.1,0)(0.1,3.2)}
+            \rput{25}(0,0){\psline[linecolor=red,linewidth=1.5pt]{->}(0,0)(0.,2)}
+%           \psRotation{0}(0,3.5){$\dot\phi$}
+%           \psRotation{25}(-1.2,2.6){$\dot\psi$}
+            \psline[linecolor=red,linewidth=1.25pt]{->}(0,0)(0,2)
+            \psline[linecolor=red,linewidth=1.25pt]{->}(0,0)(3,-1)
+            \psline[linecolor=red,linewidth=1.25pt]{->}(0,0)(2.85,-0.95)
+            \psarc{->}{2.1}{90}{112.5}
+            \rput[bl](.1,.01){C}
+        \end{pspicture}
+    \end{minipage}\hspace{1cm}
+    \begin{minipage}{0.5\linewidth}
+        \medskip
+        %\hspace{2cm}
+        \begin{figure}[h]
+            \centering
+            \includegraphics[height=.25\textheight]{pic/erasmusmc_logo.png}
+        \end{figure}
+    \end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{\LaTeX{} Useful commands}
+    \begin{exampleblock}{Commands}
+        \centering
+        \footnotesize
+        \begin{tabular}{llll}
+            \cmd{chapter} & \cmd{section} & \cmd{subsection} & \cmd{paragraph} \\
+            Chapter & Section & Subsection & Para \\\hline
+            \cmd{centering} & \cmd{emph} & \cmd{verb} & \cmd{url} \\
+            Centered & Emphasized & Verbatim & URL \\\hline
+            \cmd{footnote} & \cmd{item} & \cmd{caption} & \cmd{includegraphics} \\
+            Footnotes & Enumeration item & Captions & Figures \\\hline
+            \cmd{label} & \cmd{cite} & \cmd{ref} \\
+            Labels & Citations & Cross-reference\\\hline
+        \end{tabular}
+    \end{exampleblock}
+    \begin{exampleblock}{Environment}
+        \centering
+        \footnotesize
+        \begin{tabular}{lll}
+            \env{table} & \env{figure} & \env{equation}\\
+            Table & Figure & Formulas \\\hline
+            \env{itemize} & \env{enumerate} & \env{description}\\
+            Free list & Numbered list & Description \\\hline
+        \end{tabular}
+    \end{exampleblock}
+\end{frame}
+
+\begin{frame}[fragile]{\LaTeX{} Example for environment commands}
+    \begin{minipage}{0.5\linewidth}
+\begin{lstlisting}[language=TeX]
+\begin{itemize}
+  \item A \item B
+  \item C
+  \begin{itemize}
+    \item C-1
+  \end{itemize}
+\end{itemize}
+\end{lstlisting}
+    \end{minipage}\hspace{1cm}
+    \begin{minipage}{0.3\linewidth}
+        \begin{itemize}
+            \item A
+            \item B
+            \item C
+            \begin{itemize}
+                \item C-1
+            \end{itemize}
+        \end{itemize}
+    \end{minipage}
+    \medskip
+    \pause
+    \begin{minipage}{0.5\linewidth}
+\begin{lstlisting}[language=TeX]
+\begin{enumerate}
+  \item BIG \item BIIIIIG
+  \item SMall
+  \begin{itemize}
+    \item[n+e] ??!
+  \end{itemize}
+\end{enumerate}
+\end{lstlisting}
+    \end{minipage}\hspace{1cm}
+    \begin{minipage}{0.3\linewidth}
+        \begin{enumerate}
+            \item BIG
+            \item BIIIG
+            \item SMALl
+            \begin{itemize}
+                \item[n+e] \#\#\#\#\#
+            \end{itemize}
+        \end{enumerate}
+    \end{minipage}
+\end{frame}
+
+\begin{frame}[fragile]{\LaTeX{} Formulae}
+    \begin{columns}
+        \begin{column}{.55\textwidth}
+\begin{lstlisting}[language=TeX]
+$V = \frac{4}{3}\pi r^3$
+
+\[
+  V = \frac{4}{3}\pi r^3
+\]
+
+\begin{equation}
+  \label{eq:vsphere}
+  V = \frac{4}{3}\pi r^3
+\end{equation}
+\end{lstlisting}
+        \end{column}
+        \begin{column}{.4\textwidth}
+            $V = \frac{4}{3}\pi r^3$
+            \[
+                V = \frac{4}{3}\pi r^3
+            \]
+            \begin{equation}
+                \label{eq:vsphere}
+                V = \frac{4}{3}\pi r^3
+            \end{equation}
+        \end{column}
+    \end{columns}
+    \begin{itemize}
+        \item For more see: \href{https://www.erasmusmc.nl}{\color{erasmusmc}{HERE}}
+    \end{itemize}
+\end{frame}
+
+\begin{frame}[fragile]
+    \begin{columns}
+        \column{.6\textwidth}
+\begin{lstlisting}[language=TeX]
+    \begin{table}[htbp]
+      \caption{Number and meaning}
+      \label{tab:number}
+      \centering
+      \begin{tabular}{cl}
+        \toprule
+        Number & Meaning \\
+        \midrule
+        1 & 4.0 \\
+        2 & 3.7 \\
+        \bottomrule
+      \end{tabular}
+    \end{table}
+    For number and meaning of 
+    formula ~(\ref{eq:vsphere})
+    please see 
+    Table ~\ref{tab:number}.
+\end{lstlisting}
+        \column{.4\textwidth}
+        \begin{table}[htpb]
+            \centering
+            \caption{Number and meaning}
+            \label{tab:number}
+            \begin{tabular}{cl}\toprule
+                Number & Meaning \\\midrule
+                1 & 4.0\\
+                2 & 3.7\\\bottomrule
+            \end{tabular}
+        \end{table}
+        \normalsize For number and meaning of formula ~(\ref{eq:vsphere})
+    please see Table ~\ref{tab:number}.
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Plotting}
+    \begin{itemize}
+        \item Vector plots eps, ps, pdf
+        \begin{itemize}
+            \item METAPOST, pstricks, pgf $\ldots$
+            \item Xfig, Dia, Visio, Inkscape $\ldots$
+            \item Matlab / Excel can be saved as pdf
+        \end{itemize}
+        \item Scalar plots png, jpg, tiff $\ldots$
+        \begin{itemize}
+            \item More resolution needed.
+            \item Avoided please.
+        \end{itemize}
+    \end{itemize}
+    \begin{figure}[htpb]
+        \centering
+        \includegraphics[width=0.2\linewidth]{pic/erasmusmc_logo.png}
+        \caption{This logo is not a vector plot}
+    \end{figure}
+\end{frame}
+
+\section{Time schedule}
+\begin{frame}{Time schedule}
+    \begin{itemize}
+        \item Jan: Lorem ipsum dolor sit amet
+        \item Feb: Lorem ipsum dolor sit amet
+        \item Mar \& Apr: Lorem ipsum dolor sit amet
+        \item May: Lorem ipsum dolor sit amet
+    \end{itemize}
+\end{frame}
+
+\section{Reference}
+
+\begin{frame}[allowframebreaks]
+    \printbibliography
+    % \tiny\bibliographystyle{alpha}
+\end{frame}
+
+\begin{frame}
+    \begin{center}
+        {\Huge\calligra Thanks!}
+    \end{center}
+\end{frame}
+
+\end{document}
