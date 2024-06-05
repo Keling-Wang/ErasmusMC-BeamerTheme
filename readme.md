@@ -5,7 +5,7 @@ Author: **Keling Wang**. E-mail: [keling.wang@erasmusmc.nl](mailto:keling.wang@e
 
 ## Usage
 ### `pic`
-Folder. Contains Erasmus MC logo: `erasmusmc_logo.png` (Dutch version)
+Folder. Contains Erasmus MC logo: `erasmusmc_logo.png` (Dutch version); `erasmusmc_logo.pdf` (English version, vector). The latter one is used in `slide.tex` and `titlepage.tex`.
 ### `erasmusmc.sty`
 Adjusted from `tsinghua.sty`. Contains layout and color designs.
 ### `ref.bib`
